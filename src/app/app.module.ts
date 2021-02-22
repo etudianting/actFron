@@ -30,6 +30,11 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ActuComponent } from './components/actu/actu.component';
+import { CreateComponent } from './components/actu/create/create.component';
+import { UpdateComponent } from './components/actu/update/update.component';
+import { DeleteComponent } from './components/actu/delete/delete.component';
 
 
 @NgModule({
@@ -47,7 +52,12 @@ import {
     CartComponent,
     ContactComponent,
     Login1Component,
-    Register1Component
+    Register1Component,
+    DashboardComponent,
+    ActuComponent,
+    CreateComponent,
+    UpdateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +78,7 @@ import {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              'clientId'
+              '210254962100-h09409232d7bgnpnd2he2g9nd02f3pgs.apps.googleusercontent.com'
             )
           },
           {
