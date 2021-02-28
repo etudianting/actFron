@@ -9,8 +9,8 @@
           <li><a href="#"><i class="fa fa-map-marker"></i> Actualités </a></li>
         </ul>
         <ul class="header-links pull-right">
-          <li><a routerLink="/login"><i class="fa fa-sign-in"></i> {{authState === false ? 'LOGIN' : 'My Account'}}</a></li>
-          <li *ngIf="!authState"><a routerLink="/register"><i class="fa fa-user-plus"></i> REGISTER</a></li>
+          <li><a routerLink="/login" *ngIf="!connected"><i class="fa fa-sign-in"></i> Se-Connecter</a></li>
+          <li *ngIf="!connected"><a routerLink="/register"><i class="fa fa-user-plus"></i> Enregistrer</a></li>
           <li><a href="/test/admin" *ngIf="authState"><i class="fa fa-user-plus"></i> ADMIN</a></li>
         </ul>
       </div>
@@ -107,8 +107,11 @@
       <div id="responsive-nav">
         <!-- NAV -->
         <ul class="main-nav nav py-3">
-          <li class="active"><a routerLink="/">Home</a></li>
-          <li><a routerLink="/contact">Contact Us</a></li>
+          <li class="active"><a routerLink="/">Accueil</a></li>
+          <li><a routerLink="/">Gestions des médias</a></li>
+          <li><a routerLink="/ajouteractualite">Gestion d'actualtés</a></li>
+          <li><a routerLink="/">Gestion des publicités</a></li>
+          <li><a routerLink="/contact">Contact </a></li>
         </ul>
         <!-- /NAV -->
       </div>
