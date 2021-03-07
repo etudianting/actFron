@@ -29,6 +29,13 @@
               </div>
               
         
+              <div class="form-group">
+                <label for="orga">Domaine</label>
+                   <select class="form-control form-control-sm" >
+                       <option *ngFor="let item of domaines; let i=index" value="{{item.titreDom}}">{{item.titreDom}}</option>
+                   </select>
+
+                </div>
           
 
               <div class="form-group">
