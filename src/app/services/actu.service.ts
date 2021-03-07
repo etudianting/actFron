@@ -24,10 +24,9 @@ export class ActuService {
   }
   
 
-
  // POST REQUEST
- public saveActualite(body): Observable<any> {
-  return this.http.post(AUTH_API +'actualites', body);
+ public saveActualite(id_dom,body): Observable<any> {
+  return this.http.post(AUTH_API +`${id_dom}`+'/actualites', body);
 }
 
 
