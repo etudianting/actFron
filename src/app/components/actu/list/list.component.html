@@ -1,0 +1,23 @@
+<div class="table-responsive mailbox-messages">
+    <table class="table table-hover table-striped table-ministere">
+     
+        <tr
+          *ngFor="let item of actualites ">
+          <td>
+          
+              
+                  <a [routerLink]="['detailsnews']" class="title-table">
+                    {{item.titreAct}}  </a>
+                  
+                   
+                    <a *ngIf="item.state === 'draft'" class="mr-1 badge badge-dark"><i class="fas fa-pen"></i>
+                   
+                        {{item.origineAct}}  </a>
+          
+          </td>
+         
+        </tr>
+    
+    </table>
+  
+</div>

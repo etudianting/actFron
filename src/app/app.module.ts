@@ -35,7 +35,9 @@ import { ActuComponent } from './components/actu/actu.component';
 import { CreateComponent } from './components/actu/create/create.component';
 import { UpdateComponent } from './components/actu/update/update.component';
 import { DeleteComponent } from './components/actu/delete/delete.component';
-
+import { ListComponent } from './components/actu/list/list.component';
+import { DetailsComponent } from './components/actu/details/details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { DeleteComponent } from './components/actu/delete/delete.component';
     ActuComponent,
     CreateComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    ListComponent,
+    DetailsComponent, 
   ],
   imports: [
     BrowserModule,
@@ -68,6 +72,7 @@ import { DeleteComponent } from './components/actu/delete/delete.component';
     ReactiveFormsModule,
     SocialLoginModule,
     ToastrModule.forRoot(),
+   
   ],
   providers: [
     {
