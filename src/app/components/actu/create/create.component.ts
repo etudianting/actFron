@@ -37,7 +37,7 @@ export class CreateComponent implements OnInit {
          if (localStorage.getItem('actualiteToUpdate')) {
            localStorage.removeItem('actualiteToUpdate');
          }
-         this.router.navigate(['/actualites/list']);
+         this.router.navigate(['/actualiteslist']);
        }, error => {
          console.log(error)
        })

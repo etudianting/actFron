@@ -32,4 +32,8 @@ export class Register1Component implements OnInit {
     );
   }
 
+
 }
+
+}
+
