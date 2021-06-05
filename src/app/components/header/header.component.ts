@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
   cartTotal: number;
   authState: boolean;
   connected = false;
+  isLoggedIn = false;
+  private roles: string[] = [];
+  showAdminBoard=false;
+  username?: string;
 
   constructor(public cartService: CartService,private authService: AuthService, private tokenStorageService: TokenStorageService,
     private router: Router,
@@ -28,18 +32,27 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartDataObs$.subscribe(data => this.cartData = data);
 
     this.userService.authState$.subscribe(authState => this.authState = authState);
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+
+      this.username = user.username;
 
 
 
 
     
-  }
+  }}
 
 
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
   }
 
 

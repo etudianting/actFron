@@ -57,7 +57,7 @@ import { DeleteComponent } from './components/actu/delete/delete.component';
     ActuComponent,
     CreateComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
   ],
   imports: [
     BrowserModule,

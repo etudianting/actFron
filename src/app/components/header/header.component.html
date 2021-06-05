@@ -9,9 +9,17 @@
           <li><a href="#"><i class="fa fa-map-marker"></i> Actualités </a></li>
         </ul>
         <ul class="header-links pull-right">
-          <li><a routerLink="/login" *ngIf="!connected"><i class="fa fa-sign-in"></i> Se-Connecter</a></li>
-          <li *ngIf="!connected"><a routerLink="/register"><i class="fa fa-user-plus"></i> Enregistrer</a></li>
+          <li><a routerLink="/login" *ngIf="!isLoggedIn"><i class="fa fa-sign-in"></i> Se-Connecter</a></li>
+          <li *ngIf="!isLoggedIn"><a routerLink="/register"><i class="fa fa-user-plus"></i> Enregistrer</a></li>
           <li><a href="/test/admin" *ngIf="authState"><i class="fa fa-user-plus"></i> ADMIN</a></li>
+        </ul>
+        <ul class="header-links pull-right" *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+          </li>
+          <li class="nav-item">
+            <a href class="nav-link" (click)="logout()">LogOut</a>
+          </li>
         </ul>
       </div>
     </div>

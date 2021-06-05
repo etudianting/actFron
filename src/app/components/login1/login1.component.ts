@@ -22,7 +22,7 @@ export class Login1Component implements OnInit {
   errorMessage = '';
   loginMessage = '';
   roles: string[] = [];
-  connected = false;
+
 
 
   constructor(private authService: AuthService,
@@ -59,8 +59,7 @@ export class Login1Component implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.router.navigate(['dashboard']);
-       console.log(data);
+        this.reloadPage();
         
       },
       err => {
@@ -91,11 +90,6 @@ export class Login1Component implements OnInit {
     return this.authService.isAuthentificated();
   }
 
-  logout() {
-    localStorage.removeItem('reloaded');
-    this.connected = false;
-    this.router.navigate(['login']);
-  }
 
 
 
