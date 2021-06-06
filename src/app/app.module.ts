@@ -30,7 +30,18 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ActuComponent } from './components/actu/actu.component';
+import { CreateComponent } from './components/actu/create/create.component';
+import { UpdateComponent } from './components/actu/update/update.component';
+import { DeleteComponent } from './components/actu/delete/delete.component';
+import { ListComponent } from './components/actu/list/list.component';
+import { DetailsComponent } from './components/actu/details/details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -47,7 +58,14 @@ import {
     CartComponent,
     ContactComponent,
     Login1Component,
-    Register1Component
+    Register1Component,
+    DashboardComponent,
+    ActuComponent,
+    CreateComponent,
+    UpdateComponent,
+    DeleteComponent,
+    ListComponent,
+    DetailsComponent, 
   ],
   imports: [
     BrowserModule,
@@ -58,6 +76,10 @@ import {
     ReactiveFormsModule,
     SocialLoginModule,
     ToastrModule.forRoot(),
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
+   
   ],
   providers: [
     {
@@ -68,7 +90,7 @@ import {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              'clientId'
+              '210254962100-h09409232d7bgnpnd2he2g9nd02f3pgs.apps.googleusercontent.com'
             )
           },
           {
