@@ -41,6 +41,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import {PasswordModule} from 'primeng/password';
     ToastrModule.forRoot(),
     InputTextModule,
     PasswordModule,
+    ButtonModule,
    
   ],
   providers: [

@@ -22,7 +22,8 @@ export class Login1Component implements OnInit {
   errorMessage = '';
   loginMessage = '';
   roles: string[] = [];
-
+  username?: string;
+  
 
 
   constructor(private authService: AuthService,
@@ -48,9 +49,17 @@ export class Login1Component implements OnInit {
     this.userService.googleLogin();
   } 
 
+  signInWithFacebook():any {
+    
+  } 
+  signInWithTwitter():any {
+    
+  } 
+
   
 
   onSubmit(data) {
+    console.log("testlog");
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
@@ -58,17 +67,23 @@ export class Login1Component implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        const user = this.tokenStorage.getUser();
         this.roles = this.tokenStorage.getUser().roles;
+        this.username = user.username;
+        this.loginMessage = 'Welcome '+this.username.toUpperCase();
         this.reloadPage();
         
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = "The username or the password you entered is incorrect";
         this.isLoginFailed = true;
       }
     );
   }
 
+  ForgotPassword(){
+    console.log("testpass");
+  }
   reloadPage(): void {
     window.location.reload();
   }
