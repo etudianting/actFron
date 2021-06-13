@@ -39,6 +39,10 @@ import { ListComponent } from './components/actu/list/list.component';
 import { DetailsComponent } from './components/actu/details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +76,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     SocialLoginModule,
     ToastrModule.forRoot(),
+    InputTextModule,
+    PasswordModule,
+    ButtonModule,
    
   ],
   providers: [

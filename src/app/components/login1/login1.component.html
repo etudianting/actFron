@@ -1,52 +1,95 @@
-<div class="container">
-    <div class="jumbotron">
+<div class="container"></div>
+    <div class="jumbotron  bg-dark text-white">
       <div class="row">
         <div class="col-md-6 d-flex mx-auto flex-column">
           <ng-container *ngIf="loginMessage?.length > 0">
-            <div class="alert alert-danger alert-dismissible text-center">
+            <div class="alert alert-success alert-dismissible text-center">
               {{loginMessage}}
             </div>
           </ng-container>
           <form *ngIf="!isLoggedIn"
           name="form"
           (ngSubmit)="f.form.valid && onSubmit()"
-          #f="ngForm"
-          novalidate>
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                name="username"
+          #f="ngForm" novalidate>
+          <div class="p-fluid">
+            <div class="p-field">
+                <label for="username">Username</label>
+                <input id="username" type="text" name="username"
                 [(ngModel)]="form.username"
                 required
-                #username="ngModel"
-              />
+                #username="ngModel" pInputText> 
+                <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && username.invalid"
+          >
+            Username is required!
+          </div>
             </div>
-  
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                name="password"
+            
+            <div class="p-field">
+                <label for="password">Password</label>
+                <input id="password" [type]="fieldTextType ? 'text' : 'password'" name="password"
                 [(ngModel)]="form.password"
-                required
-                minlength="6"
-                #password="ngModel"
-              />
-            </div>
-            <div class="d-flex flex-column align-items-center justify-content-around">
-              <button class="btn btn-primary btn-sm btn-block">Login</button>
-              <hr>
-              <h4 class="text-uppercase"><strong>Login Using</strong></h4>
+                required 
+                #password="ngModel"  pInputText> 
+                <div
+                   class="alert alert-danger"
+                  role="alert"
+                  *ngIf="f.submitted && password.invalid">
+                     <div *ngIf="password.errors.required">Password is required</div>
+                </div>
+                
+                    <span style="margin-left:-25px;">
+                      <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      style="color: rgb(149, 149, 153); cursor: pointer;"
+                      (click)="toggleFieldTextType()"
+                    ></i>
+                    </span>
+
+               
+      </div>
+      </div>
+        <br>
+            <div class=" flex-column align-items-center justify-content-around">
+              <div class="row">  
+                <div class="col-6">  
+                    <p-button class="p-button-outlined" type="btn-link" label="Login"> </p-button>  
+                </div>
+                
+                <div class="form-group">
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="f.submitted && isLoginFailed">
+                    Login failed: {{ errorMessage }}
+                  </div>
+                  
+                </div>  
+                <div class="col-6 text-right">  
+                  <button  (click)="ForgotPassword()" type="button" class=" btn btn-link px-0" >Forgot password?</button>  
+              </div>  
+            </div>  
+              <hr>      
+              <h4 class="text-uppercase text-white text-center" ><strong>Login Using</strong></h4>
               <button (click)="signInWithGoogle()" class="btn btn-danger btn-sm btn-block mt-4"><span><i
                 class="fa fa-google"></i> Google </span>
               </button> 
+              <button (click)="signInWithFacebook()"  class="btn btn-primary btn-sm btn-block mt-4"> <span><i
+                class="fa fa-facebook"></i> Facebook </span>
+              </button>
+              <button (click)="signInWithTwitter()"  class="btn btn-info btn-sm btn-block mt-4"> <span><i
+                class="fa fa-twitter"></i> Twitter </span>
+              </button>
             </div>
           </form>
         </div>
-      </div>
+      </div>                                                                                                                                                                                    
     </div>
-  </div>
+
   
