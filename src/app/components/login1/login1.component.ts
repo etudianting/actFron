@@ -23,6 +23,7 @@ export class Login1Component implements OnInit {
   loginMessage = '';
   roles: string[] = [];
   username?: string;
+  fieldTextType: boolean;
   
 
 
@@ -79,6 +80,11 @@ export class Login1Component implements OnInit {
         this.isLoginFailed = true;
       }
     );
+  }
+
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 
   ForgotPassword(){

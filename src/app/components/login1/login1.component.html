@@ -26,21 +26,35 @@
             Username is required!
           </div>
             </div>
+            
             <div class="p-field">
                 <label for="password">Password</label>
-                <input id="password" type="password" name="password"
+                <input id="password" [type]="fieldTextType ? 'text' : 'password'" name="password"
                 [(ngModel)]="form.password"
                 required 
                 #password="ngModel"  pInputText> 
                 <div
-            class="alert alert-danger"
-            role="alert"
-            *ngIf="f.submitted && password.invalid"
-          >
-            <div *ngIf="password.errors.required">Password is required</div>
-            </div>
-        </div>
-        </div>
+                   class="alert alert-danger"
+                  role="alert"
+                  *ngIf="f.submitted && password.invalid">
+                     <div *ngIf="password.errors.required">Password is required</div>
+                </div>
+                
+                    <span style="margin-left:-25px;">
+                      <i
+                      class="fa"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      style="color: rgb(149, 149, 153); cursor: pointer;"
+                      (click)="toggleFieldTextType()"
+                    ></i>
+                    </span>
+
+               
+      </div>
+      </div>
         <br>
             <div class=" flex-column align-items-center justify-content-around">
               <div class="row">  
